@@ -27,7 +27,11 @@ class Player:
       #Set a variable for finalStatus, and then return it
       finalStatus = currentHand + "score " + str(self.score)
       return finalStatus
-
+# Game steps 
+class Game:
+    def __init__(self,player1,player2):
+        pass
+    
 
 
 # Create card Deck 
