@@ -1,48 +1,38 @@
-from random import shuffle
-
-def createDeck():
-    Deck = []
-
-    #Set a variable for faceValues
-    cards = ['🅰️','2','3','4','5','6','7','8','9','10' '🇯', '🤴', '🤴']
-    for card in cards: # Adding numbers 
-        for ctype in ['♠','♣️','♥️','♦️']:  # There are 4 different suites
-            Deck.append(card+ctype)
-
-    shuffle(Deck) # Mixing results with shuffle
-    return Deck # Return products
-
-
+from Deck import createDeck
 # Set a player class
 class Player:
-    def __init__(self,cards = []):     #__init__ is the constructor for a class
+    def __init__(self,cards,name):     #__init__ is the constructor for a class
       self.cards = cards
-
-    def __str__(self):       #__str__ will return a human readable string
-      currentHand = " "
-
-      for card in self.hand:
-          currentHand  += str(card) + " "
-
-      #Set a variable for finalStatus, and then return it
-      finalStatus = currentHand + "score " + str(self.score)
-      return finalStatus
+      self.name= name
 # Game steps 
 class Game:
-    def __init__(self,player1,player2):
-        pass
+    def __init__(self,player):
+        self.player = player
     
+    def play(self):
+        top = player.cards.pop()
+        return top
 
 
 # Create card Deck 
 cardDeck = createDeck()
 
 # Distribute the cards for player 1
-firstPlayer =cardDeck[:,len(cardDeck)//2]
-
-# Distribute the cards for player 2
-secondPlayer = cardDeck[len(cardDeck)//2,:]
+cards =cardDeck[0:len(cardDeck)//2]
 
 # creating Player 1
+name1=input("Please enter your name Player 1 :  ")
+player1 = Player(cards,name1)
 
-playerOne = Player(firstPlayer)
+
+# Distribute the cards for player 1
+cards =cardDeck[len(cardDeck)//2:]
+
+# creating Player 2
+name2=input("Please enter your name Player 2 :  ")
+player2 = Player(cards,name2)
+
+#Starting the game
+
+
+
